@@ -15,9 +15,11 @@
 )
 
 #slide(title: "Режимы течения жидкости через насадку")[
-
+  #v(-2em)
+  
   #framed[
-    *Кафаров В.В., Плановский А.Н. (МХТИ)* \ "Явление скачкообразного увеличения тепло- и массообмена между газовой и жидкой фазами в режиме инверсии фаз" \
+    *Кафаров В.В., Плановский А.Н. (МХТИ)* \ "Явление скачкообразного увеличения тепло- 
+    и массообмена между газовой и жидкой фазами в режиме инверсии фаз" \
     #align(right)[Государственный реестр открытий СССР, № 141 от 6 июля *1949 г.*]
     
   ]
@@ -34,13 +36,13 @@
     let unit = width / 25
     let height = 6
 
-    rect((0, 0), (7*unit, height), stroke: none, fill: rgb("E1F5FE"))
+    //rect((0, 0), (7*unit, height), stroke: none, fill: rgb("E1F5FE"))
     content((3.5*unit, height), anchor: "north", text(30pt)[*I*], padding: 0.5)
-    rect((7*unit, 0), (20*unit, height), fill: rgb("81D4FA"))
+    //rect((7*unit, 0), (20*unit, height), fill: rgb("81D4FA"))
     content((13.5*unit, height), anchor: "north", text(30pt)[*II*], padding: 0.5)
-    rect((20*unit, 0), (22*unit, height), fill: rgb("0296E0"))
+    //rect((20*unit, 0), (22*unit, height), fill: rgb("0296E0"))
     content((21*unit, height), anchor: "north", text(30pt)[*III*], padding: 0.5)
-    rect((22*unit, 0), (24.05*unit, height), fill: rgb("1565C0"))
+    rect((22*unit, 0), (24.05*unit, height), fill: rgb("DDDDDD"))
     content((23*unit, height), anchor: "north", text(30pt)[*IV*], padding: 0.5)
 
     line((0, 0), (width, 0), mark: (end: "stealth"))
@@ -55,11 +57,13 @@
       (24*unit, height),
       stroke: 3pt
     )
+    line((7*unit, 0), (7*unit, height))
+    line((20*unit, 0), (20*unit, height))
 
-    line((24.05*unit, 0), (24.05*unit, -0.2))
+    line((24.05*unit, -0.2), (24.05*unit, height))
     content((24*unit, 0), text(18pt)[*$L_max$*], anchor: "north", padding: 0.5)
 
-    line((22*unit, 0), (22*unit, -0.2))
+    line((22*unit, -0.2), (22*unit, height))
     content((22*unit, 0), text(18pt)[*$L_"inv"$*], anchor: "north", padding: 0.5)
 
     content((0, height), text(18pt)[*$ln F_0$*], anchor: "north-west", padding: 0.2)
@@ -88,10 +92,48 @@
 ]
 
 #slide(title: "Принудительное создание режима эмульгирования")[
-  В обычной насадочной колонне режим эмульгирования наблюдается в узком диапазоне потока
-  жидкости и неустойчив. В *1952 г. Кафаровым В.В. и Бляхманом Л.И.* была предложена конструкция
-  *_колонны с затопленной насадкой_* (*_колонны с принудительной эмульгацией_*).
+  #framed[
+    В обычной насадочной колонне режим эмульгирования наблюдается в узком диапазоне потока
+    жидкости и неустойчив. В *1952 г. Кафаровым В.В. и Бляхманом Л.И.* была предложена конструкция
+    *_колонны с затопленной насадкой_* (*_колонны с принудительной эмульгацией_*).
+  ]
+  #cetz.canvas({
+    import cetz.draw: *
 
+    set-style(
+      mark: (fill: black, scale: 2),
+      rect: (stroke: none),
+    )
+
+    let width = 25
+    let unit = width / 25
+    let height = 6
+
+    line((0, 0), (width, 0), mark: (end: "stealth"))
+    
+    line((0, 0), (0, height), mark: (end: "stealth"))
+
+    line((unit, 0.1*height), (24.5*unit, 0.9*height), stroke: 3pt)
+
+    line((24.05*unit, -0.2), (24.05*unit, height))
+    content((24*unit, 0), text(18pt)[*$L_max$*], anchor: "north", padding: 0.5)
+
+    content((0, height), text(18pt)[*$ln F_0$*], anchor: "north-west", padding: 0.2)
+    content((width, 0), text(18pt)[*$L$*], anchor: "south-east", padding: 0.3)
+
+    content(
+      (width/2, 0),
+      align(center)[
+        #text(16pt)[
+          *Зависимость эффективности разделения от потока
+          жидкости через насадку ($L$) \ для колонны
+          с принудительной эмульгацией.*
+        ]
+      ],
+      anchor: "north",
+      padding: 1.3
+    )
+  })
   
 ]
 
